@@ -9,9 +9,12 @@ application](https://github.com/dannywillems/ocaml-cordova-plugin-device-motion-
 ## What does cordova-plugin-device-motion do ?
 
 ```
-This plugin provides access to the device's accelerometer. The accelerometer is a motion sensor that detects the change (delta) in movement relative to the current device orientation, in three dimensions along the x, y, and z axis.
+This plugin provides access to the device's accelerometer. The accelerometer is
+a motion sensor that detects the change (delta) in movement relative to the
+current device orientation, in three dimensions along the x, y, and z axis.
 Access is via a global navigator.accelerometer object.
-Although the object is attached to the global scoped navigator, it is not available until after the deviceready event.
+Although the object is attached to the global scoped navigator, it is not
+available until after the deviceready event.
 ```
 
 Source: [cordova-plugin-device-motion](https://github.com/apache/cordova-plugin-device-motion)
