@@ -11,10 +11,7 @@ type id = int
 type cb_success = _Acceleration Js.t -> unit
 type cb_error = unit -> unit
 
-class type options =
-  object
-    method frequency : int Js.t
-  end
+type options = < frequency : int Js.readonly_prop > Js.t
 
 class type accelerometer =
   object
@@ -28,4 +25,9 @@ class type accelerometer =
       options     ->
       id Js.meth
     method clearWatch : id -> unit Js.meth
+  end
+
+let create_options freq =
+  object%js
+    val frequency = freq
   end
