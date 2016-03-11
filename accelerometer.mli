@@ -29,4 +29,4 @@ class type accelerometer =
 
 val create_options : int -> options
 
-val accelerometer : unit -> accelerometer Js.
+val accelerometer : unit -> accelerometer Js.t
