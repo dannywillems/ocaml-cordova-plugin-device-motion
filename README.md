@@ -33,14 +33,13 @@ We don't provide a *navigator.accelerometer* variable in this plugin (as said in
 documentation on js_of_ocaml). If we did, *navigator.accelerometer* will be set to **undefined**
 because the *navigator.accelerometer* object doesn't exist when we create the variable.
 
-You need to create a variable of type *Accelerometer.accelerometer Js.t* in the *deviceready*
-event handler.
+Instead, we provide a function *Accelerometer.accelerometer* of type unit -> Accelerometer.accelerometer
+Js.t which does the binding when you call it.
 So, use
 
 ```OCaml
 let on_device_ready =
-  let d : Accelerometer.accelerometer Js.t = Js.Unsafe.js_expr
-  ("navigation.accelerometer") in
+  let a = Accelerometer.accelerometer () in
   (* Some code *)
 
 let _ =
