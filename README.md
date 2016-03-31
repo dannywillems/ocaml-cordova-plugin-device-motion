@@ -46,13 +46,9 @@ See the official documentation
 The device plugin creates a new object called *navigator.accelerometer*, but the object is
 available when the *deviceready* event is handled.
 
-We don't provide a *navigator.accelerometer* variable in this plugin (as said in the official
-documentation on js_of_ocaml). If we did, *navigator.accelerometer* will be set to **undefined**
-because the *navigator.accelerometer* object doesn't exist when we create the variable.
-
-Instead, we provide a function *Accelerometer.t* of type unit ->
-Accelerometer.accelerometer Js.t which does the binding when you call it.
-So, use
+We provide a function *Accelerometer.t* of type unit ->
+Accelerometer.accelerometer which does the binding when you call it.
+So, use (with js_of_ocaml)
 
 ```OCaml
 let on_device_ready _ =
