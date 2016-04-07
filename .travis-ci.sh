@@ -33,6 +33,9 @@ eval `opam config env`
 
 export OCAMLRUNPARAM=b
 
+# Depends on ocaml-js-stdlib
+opam pin add ocaml-js-stdlib https://github.com/dannywillems/ocaml-js-stdlib.git
+
 # Test for make and make clean
 make && make clean
 
@@ -40,6 +43,5 @@ make && make clean
 make install && make remove && make clean
 
 # Test for the pin and -package. No real tests are done.
-opam pin add ocaml-js-stdlib https://github.com/dannywillems/ocaml-js-stdlib.git
 opam pin add ${PLUGIN_PIN} ${URL}
 ocamlfind ocamlc -c -o test.cmo -package gen_js_api -package ocaml-js-stdlib -package ${PLUGIN_PIN} -linkpkg test/test.ml
