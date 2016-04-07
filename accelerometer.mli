@@ -36,11 +36,11 @@ class accelerometer : Ojs.t ->
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------------------------------------------------- *)
-val create_options : ?frequency:(int [@js.default 1000]) -> options
+val create_options : ?frequency:(int [@js.default 1000]) -> unit -> options
 [@@js.builder]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------------------------------------------------- *)
-val accelerometer : unit -> accelerometer Js.t
+val t : unit -> accelerometer
 [@@js.get "navigator.accelerometer"]
 (* -------------------------------------------------------------------------- *)
