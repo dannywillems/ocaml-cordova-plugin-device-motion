@@ -32,6 +32,28 @@ The js_of_ocaml version is available in the branch
 [*js_of_ocaml*](https://github.com/dannywillems/ocaml-cordova-plugin-device-motion/tree/js_of_ocaml)
 but we **recommend** to use the gen_js_api version which is the master branch.
 
+## How to install and compile your project by using this plugin ?
+
+Don't forget to switch to a compiler **>= 4.03.0**.
+```Shell
+opam switch 4.03.0+beta1
+```
+
+You can use opam by pinning the repository with
+```Shell
+opam pin add cordova-plugin-device-motion https://github.com/dannywillems/ocaml-cordova-plugin-device-motion.git
+```
+
+and to compile your project, use
+```Shell
+ocamlfind ocamlc -c -o [output_file] -package gen_js_api -package ocaml-js-stdlib -package cordova-plugin-device-motion [...] -linkpkg [other arguments]
+```
+
+Don't forget to install the cordova plugin device motion with
+```Shell
+cordova plugin add cordova-plugin-device-motion
+```
+
 ## How to use ?
 
 You need to have Js_date module which is provided in the binding to the
