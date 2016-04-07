@@ -1,1 +1,1 @@
-let t = Accelerometer.t () in t#clear_watch 4;
+let t = Cordova_accelerometer.t () in t#clear_watch 4;

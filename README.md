@@ -68,13 +68,13 @@ See the official documentation
 The device plugin creates a new object called *navigator.accelerometer*, but the object is
 available when the *deviceready* event is handled.
 
-We provide a function *Accelerometer.t* of type unit ->
-Accelerometer.accelerometer which does the binding when you call it.
+We provide a function *Cordova_accelerometer.t* of type unit ->
+Cordova_accelerometer.accelerometer which does the binding when you call it.
 So, use (with js_of_ocaml)
 
 ```OCaml
 let on_device_ready _ =
-  let a = Accelerometer.t () in
+  let a = Cordova_accelerometer.t () in
   (* Some code *)
 
 let _ =
