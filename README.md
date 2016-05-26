@@ -65,22 +65,3 @@ javascript standard library you can found
 
 See the official documentation
 [cordova-plugin-device-motion](https://github.com/apache/cordova-plugin-device-motion)
-
-## ! BE CAREFUL !
-
-The device plugin creates a new object called *navigator.accelerometer*, but the object is
-available when the *deviceready* event is handled.
-
-We provide a function *Cordova_accelerometer.t* of type unit ->
-Cordova_accelerometer.accelerometer which does the binding when you call it.
-So, use (with js_of_ocaml)
-
-```OCaml
-let on_device_ready _ =
-  let a = Cordova_accelerometer.t () in
-  (* Some code *)
-
-let _ =
-  Dom.addEventListener Dom_html.document (Dom.Event.make "deviceready")
-  (Dom_html.handler on_device_ready) Js._false
-```
