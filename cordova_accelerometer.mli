@@ -6,7 +6,7 @@ class acceleration : Ojs.t ->
     method x          : int
     method y          : int
     method z          : int
-    method timestamp  : Js_date.date (* See ocaml-js-stdlib *)
+    method timestamp  : Js_date.t (* See ocaml-js-stdlib *)
   end
 (* -------------------------------------------------------------------------- *)
 
