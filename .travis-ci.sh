@@ -33,6 +33,8 @@ eval `opam config env`
 
 export OCAMLRUNPARAM=b
 
+opam install ocamlfind gen_js_api
+
 # Depends on ocaml-js-stdlib
 opam pin add ocaml-js-stdlib https://github.com/dannywillems/ocaml-js-stdlib.git
 
