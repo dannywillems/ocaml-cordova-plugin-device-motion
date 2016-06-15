@@ -1,46 +1,43 @@
 (* -------------------------------------------------------------------------- *)
 (* Class representing sent data by the accelerometer *)
-class acceleration : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method x          : int
-    method y          : int
-    method z          : int
-    method timestamp  : Js_date.t (* See ocaml-js-stdlib *)
-  end
+type acceleration = private Ojs.t
+
+val acceleration_x : acceleration -> int
+[@@js.get "x"]
+val acceleration_y : acceleration -> int
+[@@js.get "y"]
+val acceleration_z : acceleration -> int
+[@@js.get "z"]
+val acceleration_timestanp : acceleration -> Js_date.t
+[@@js.get "timestamp"]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------------------------------------------------- *)
-class options : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method frequency    : int
-  end
-(* -------------------------------------------------------------------------- *)
+type options = private Ojs.t
 
-(* -------------------------------------------------------------------------- *)
-class accelerometer : Ojs.t ->
-  object
-    inherit Ojs.obj
-    method get_current_acceleration : (acceleration -> unit)  ->
-                                      (unit -> unit)          ->
-                                      unit
-
-    method watch_acceleration       : (acceleration -> unit)  ->
-                                      (unit -> unit)          ->
-                                      options                 ->
-                                      int
-    method clear_watch              : int                     ->
-                                      unit
-  end
-(* -------------------------------------------------------------------------- *)
-
-(* -------------------------------------------------------------------------- *)
-val create_options : ?frequency:(int [@js.default 1000]) -> unit -> options
+val create_options :
+  ?frequency:(int [@js.default 1000]) ->
+  unit                                ->
+  options
 [@@js.builder]
 (* -------------------------------------------------------------------------- *)
 
 (* -------------------------------------------------------------------------- *)
-val t : unit -> accelerometer
-[@@js.get "navigator.accelerometer"]
+val get_current_acceleration :
+  (acceleration -> unit)  ->
+  (unit -> unit)          ->
+  unit
+[@@js.global "navigator.accelerometer.getCurrentAcceleration"]
+
+val watch_acceleration :
+  (acceleration -> unit)  ->
+  (unit -> unit)          ->
+  options                 ->
+  int
+[@@js.global "navigator.accelerometer.watchAcceleration"]
+
+val clear_watch :
+  int                     ->
+  unit
+[@@js.global "navigator.accelerometer.clearWatch"]
 (* -------------------------------------------------------------------------- *)
