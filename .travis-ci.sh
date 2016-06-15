@@ -41,7 +41,3 @@ make && make clean
 
 # Test for make install and make remove
 make install && make remove && make clean
-
-# Test for the pin and -package. No real tests are done.
-opam pin add ${PLUGIN_PIN} ${URL}
-ocamlfind ocamlc -c -o test.cmo -package gen_js_api -package ocaml-js-stdlib -package ${PLUGIN_PIN} -linkpkg test/test.ml
